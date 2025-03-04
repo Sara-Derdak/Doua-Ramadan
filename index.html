@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon"  href="./images/moonbg.png">
+    <title>Doua Ramadan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        nightBlue: "#0a043c",
+                        gold: "#FFD700",
+                        parchment: "#FAF3E0",
+                        darkGold: "#C5A80A",
+                        darkGray: "#1F2937"
+                    },
+                    fontFamily: {
+                        arabic: ["Scheherazade New", "serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+</head>
+<body class="bg-white text-black min-h-screen flex flex-col items-center justify-center p-4 transition-all duration-500" style="background-image: url(./images/mosque.jpg); background-repeat: no-repeat; background-size: cover; background-attachment: fixed;">
+
+    <!--  Barre de Navigation -->
+    <nav class="w-full bg-darkGray py-4 px-6 flex justify-between items-center fixed top-0 shadow-lg z-10">
+        <h1 class="text-gold text-lg sm:text-2xl font-bold">🌙 Doua Ramadan</h1>
+        <button onclick="toggleDouaList()" id="doua-list-button"
+        class="bg-gold text-nightBlue px-3 py-2 rounded-lg font-bold shadow-md transition-transform transform hover:scale-105">
+        <i class="fas fa-list"></i> Liste des Douas
+    </button>
+    </nav>
+    <div id="doua-list-container" class="hidden mt-20 bg-parchment border-4 border-gold rounded-xl shadow-2xl p-6 text-center max-w-lg w-full">
+        <h3 class="text-xl sm:text-2xl font-bold text-gold mb-2"> Liste des Douas</h3>
+        <ul id="doua-list" class="text-gray-800 text-left space-y-2"></ul>
+        
+    </div>
+    
+
+    <!--  Doua du Jour -->
+    <div class="mt-20 w-full flex flex-col items-center text-center p-4">
+        <h3 class="text-xl sm:text-2xl font-bold text-gold mb-2"> Doua du Jour</h3>
+        <div id="daily-doua-container" class="bg-parchment border-4 border-gold rounded-lg shadow-xl p-4 max-w-lg">
+            <p id="daily-doua-text" class="text-lg font-arabic text-gray-800">Chargement...</p>
+            <p id="daily-doua-translation" class="text-gray-700 mt-2 italic"></p>
+        </div>
+    </div>
+
+    <!-- Section principale -->
+    <div class="flex flex-col items-center mt-6">
+        <h2 class="text-2xl sm:text-4xl font-bold text-gold drop-shadow-md">Un Doua à découvrir</h2>
+
+        <!-- Carte d'affichage des Douas -->
+        <div id="doua-container"
+            class="mt-6 bg-parchment border-4 border-gold rounded-xl shadow-2xl p-6 text-center max-w-lg"
+            data-aos="fade-up">
+            <p id="doua-text" class="text-lg sm:text-2xl font-arabic text-gray-800">Cliquez pour une Doua 📿</p>
+            <p id="doua-translation" class="text-gray-700 mt-2 italic"></p>
+        </div>
+
+        <!--  Boutons -->
+        <div class="flex mt-4 gap-4">
+            <button type="button" class="btn" onclick="getRandomDoua()">
+                <strong>Nouvelle Doua </strong>
+                <div id="container-stars">
+                <div id="stars"></div>
+                </div>
+            
+                <div id="glow">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                </div>
+            </button>
+            
+            <button onclick="copyDoua()"
+                class="px-4 sm:px-6 py-2 sm:py-3 bg-gray-800 text-white font-bold rounded-lg shadow-lg transition-transform transform hover:scale-110">
+                Copier 📋
+            </button>
+        </div>
+
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <footer class="text-center py-10  fixe bottom-0 w-[100%] ">
+        <p class="text-white m-0">
+            &copy; 2025 Doua Ramadan. Created by 
+            <a href="https://github.com/Sara-Derdak" class="text-white no-underline">Sara DERDAK</a>
+        </p>
+    </footer>
+    
+</body>
+</html>
